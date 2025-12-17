@@ -1,20 +1,6 @@
-import {
-  Box,
-  Chip,
-  createTheme,
-  CssBaseline,
-  Divider,
-  IconButton,
-  Paper,
-  Stack,
-  TextField,
-  ThemeProvider,
-  Typography,
-} from "@mui/material";
-import { Message } from "./components/Message";
-import { Send } from "@mui/icons-material";
-import { messages } from "./mock/messages";
+import { Box, Chip, createTheme, CssBaseline, Divider, Paper, Stack, ThemeProvider, Typography } from "@mui/material";
 import { MessagesList } from "./components/MessagesList";
+import { MessageInput } from "./components/MessageInput";
 
 export default function App() {
   const theme = createTheme({
@@ -35,14 +21,7 @@ export default function App() {
           <Divider sx={{ my: 3 }} />
           <Stack sx={{ height: 500, backgroundColor: "background.default" }}>
             <MessagesList />
-            <Paper elevation={4} sx={{ m: 2 }}>
-              <Stack direction="row" alignItems="center">
-                <TextField fullWidth multiline />
-                <IconButton color="primary" sx={{ mx: 2 }}>
-                  <Send />
-                </IconButton>
-              </Stack>
-            </Paper>
+            <MessageInput />
           </Stack>
         </Paper>
       </Box>
