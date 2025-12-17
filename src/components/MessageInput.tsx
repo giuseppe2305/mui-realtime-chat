@@ -41,6 +41,7 @@ function MessageInput({ addMessage }: Props) {
           fullWidth
           multiline
           minRows={1}
+          label="Message"
           placeholder="Type a message"
           slotProps={{
             input: {

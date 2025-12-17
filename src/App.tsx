@@ -47,7 +47,7 @@ export default function App() {
           <Stack direction="row" justifyContent="space-between" alignItems="center">
             <Typography variant="h5">Realtime Chat</Typography>
             <Stack direction="row" spacing={1} alignItems="center">
-              <Chip label="4 Users online" variant="outlined" color="success" />
+              <Chip label="4 Users online" variant="outlined" color="primary" />
               {username ? (
                 <Chip label={`@${username}`} color="primary" onDelete={handleLogout} deleteIcon={<LogoutIcon />} />
               ) : null}

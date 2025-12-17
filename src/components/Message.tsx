@@ -11,8 +11,8 @@ function Message({ data }: Props) {
     <Stack direction="row" justifyContent="end">
       <Stack
         sx={{
-          backgroundColor: "success.main",
-          color: "success.contrastText",
+          backgroundColor: "primary.main",
+          color: "primary.contrastText",
           px: 2,
           py: 1,
           borderRadius: 2,
