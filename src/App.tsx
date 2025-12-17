@@ -14,6 +14,7 @@ import {
 import { Message } from "./components/Message";
 import { Send } from "@mui/icons-material";
 import { messages } from "./mock/messages";
+import { MessagesList } from "./components/MessagesList";
 
 export default function App() {
   const theme = createTheme({
@@ -33,19 +34,7 @@ export default function App() {
           </Stack>
           <Divider sx={{ my: 3 }} />
           <Stack sx={{ height: 500, backgroundColor: "background.default" }}>
-            <Stack
-              sx={{
-                alignItems: "stretch",
-                gap: 1,
-                p: 2,
-                flexGrow: 1,
-                overflowY: "auto",
-              }}
-            >
-              {messages.map((m) => (
-                <Message key={m.id} data={m} />
-              ))}
-            </Stack>
+            <MessagesList />
             <Paper elevation={4} sx={{ m: 2 }}>
               <Stack direction="row" alignItems="center">
                 <TextField fullWidth multiline />
