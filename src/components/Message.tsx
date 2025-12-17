@@ -1,5 +1,6 @@
 import { Stack, Typography } from "@mui/material";
 import type { Message as MessageType } from "../types/Message";
+import { formatMessageDate } from "../lib/formatMessageDate";
 
 interface Props {
   data: MessageType;
@@ -20,7 +21,7 @@ function Message({ data }: Props) {
       >
         <Typography>{data.content}</Typography>
         <Typography variant="caption" sx={{ ml: "auto" }}>
-          {new Date(data.date).toLocaleString()}
+          {formatMessageDate(data.date)}
         </Typography>
       </Stack>
     </Stack>
