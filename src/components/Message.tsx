@@ -1,6 +1,11 @@
 import { Stack, Typography } from "@mui/material";
+import type { Message as MessageType } from "../types/Message";
 
-function Message() {
+interface Props {
+  data: MessageType;
+}
+
+function Message({ data }: Props) {
   return (
     <Stack direction="row" justifyContent="end">
       <Stack
@@ -13,9 +18,9 @@ function Message() {
           maxWidth: "80%",
         }}
       >
-        <Typography>First message</Typography>
+        <Typography>{data.content}</Typography>
         <Typography variant="caption" sx={{ ml: "auto" }}>
-          1 min ago
+          {data.date}
         </Typography>
       </Stack>
     </Stack>
