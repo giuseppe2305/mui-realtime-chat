@@ -1,6 +1,6 @@
+import React, { useState } from "react";
 import { Send } from "@mui/icons-material";
 import { Paper, Stack, TextField, IconButton } from "@mui/material";
-import { useState } from "react";
 
 interface Props {
   addMessage: (message: string) => void;
@@ -9,11 +9,37 @@ interface Props {
 function MessageInput({ addMessage }: Props) {
   const [typing, setTyping] = useState("");
 
+  function sendMessage() {
+    if (!isMessageValid()) return;
+
+    addMessage(typing);
+    setTyping("");
+  }
+
+  function isMessageValid() {
+    return !!typing.trim();
+  }
+
+  function handleKeyDown(e: React.KeyboardEvent<HTMLDivElement>) {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      sendMessage();
+    }
+  }
+
   return (
     <Paper elevation={4} sx={{ m: 2 }}>
       <Stack direction="row" alignItems="center">
-        <TextField value={typing} onChange={(e) => setTyping(e.target.value)} fullWidth />
-        <IconButton onClick={() => addMessage(typing)} color="primary" sx={{ mx: 2, p: 1 }}>
+        <TextField
+          value={typing}
+          onChange={(e) => setTyping(e.target.value)}
+          onKeyDown={handleKeyDown}
+          fullWidth
+          multiline
+          minRows={1}
+          placeholder="Type a message"
+        />
+        <IconButton onClick={sendMessage} color="primary" sx={{ mx: 2, p: 1 }} disabled={!isMessageValid()}>
           <Send />
         </IconButton>
       </Stack>
