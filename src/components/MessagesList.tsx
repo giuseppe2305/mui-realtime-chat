@@ -1,8 +1,12 @@
 import { Stack } from "@mui/material";
-import { messages } from "../mock/messages";
 import { Message } from "./Message";
+import type { Message as MessageType } from "../types/Message";
 
-function MessagesList() {
+interface Props {
+  messages: MessageType[];
+}
+
+function MessagesList({ messages }: Props) {
   return (
     <Stack
       sx={{

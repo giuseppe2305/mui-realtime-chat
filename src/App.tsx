@@ -1,6 +1,9 @@
 import { Box, Chip, createTheme, CssBaseline, Divider, Paper, Stack, ThemeProvider, Typography } from "@mui/material";
 import { MessagesList } from "./components/MessagesList";
 import { MessageInput } from "./components/MessageInput";
+import { useState } from "react";
+import { messages as messagesMock } from "./mock/messages";
+import type { Message } from "./types/Message";
 
 export default function App() {
   const theme = createTheme({
@@ -8,6 +11,20 @@ export default function App() {
       mode: "dark",
     },
   });
+
+  const [messages, setMessages] = useState(messagesMock);
+
+  const addMessage = (content: string) => {
+    const newMessage: Message = {
+      content,
+      date: Date.now(),
+      id: Date.now(),
+      userId: 1,
+      username: "Giuseppe2",
+    };
+
+    setMessages((m) => [...m, newMessage]);
+  };
 
   return (
     <ThemeProvider theme={theme}>
@@ -20,8 +37,8 @@ export default function App() {
           </Stack>
           <Divider sx={{ my: 3 }} />
           <Stack sx={{ height: 500, backgroundColor: "background.default" }}>
-            <MessagesList />
-            <MessageInput />
+            <MessagesList messages={messages} />
+            <MessageInput addMessage={addMessage} />
           </Stack>
         </Paper>
       </Box>
