@@ -38,10 +38,21 @@ function MessageInput({ addMessage }: Props) {
           multiline
           minRows={1}
           placeholder="Type a message"
+          slotProps={{
+            input: {
+              endAdornment: (
+                <IconButton
+                  onClick={sendMessage}
+                  color="primary"
+                  disabled={!isMessageValid()}
+                  aria-label="Send message"
+                >
+                  <Send />
+                </IconButton>
+              ),
+            },
+          }}
         />
-        <IconButton onClick={sendMessage} color="primary" sx={{ mx: 2, p: 1 }} disabled={!isMessageValid()}>
-          <Send />
-        </IconButton>
       </Stack>
     </Paper>
   );
