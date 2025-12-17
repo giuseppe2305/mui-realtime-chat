@@ -5,8 +5,8 @@ function MessageInput() {
   return (
     <Paper elevation={4} sx={{ m: 2 }}>
       <Stack direction="row" alignItems="center">
-        <TextField fullWidth multiline />
-        <IconButton color="primary" sx={{ mx: 2 }}>
+        <TextField fullWidth />
+        <IconButton color="primary" sx={{ mx: 2, p: 1 }}>
           <Send />
         </IconButton>
       </Stack>
