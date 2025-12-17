@@ -31,7 +31,10 @@ function MessageInput({ addMessage }: Props) {
     <Paper elevation={2} sx={{ m: 2 }}>
       <Stack direction="row" alignItems="center" sx={{ "& .MuiInputBase-root-root": { p: 30 } }}>
         <TextField
-          sx={{ ".MuiInputBase-root": { py: 1, px: 3 } }}
+          sx={{
+            "& .MuiInputBase-root": { py: 1, px: 3 },
+            "& .MuiInputBase-input::placeholder": { fontStyle: "italic" },
+          }}
           value={typing}
           onChange={(e) => setTyping(e.target.value)}
           onKeyDown={handleKeyDown}
