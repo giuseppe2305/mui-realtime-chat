@@ -20,7 +20,7 @@ function Message({ data }: Props) {
       >
         <Typography>{data.content}</Typography>
         <Typography variant="caption" sx={{ ml: "auto" }}>
-          {data.date}
+          {new Date(data.date).toLocaleString()}
         </Typography>
       </Stack>
     </Stack>
