@@ -41,7 +41,7 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <CssBaseline />
+      <CssBaseline enableColorScheme />
       <Box sx={{ height: "100vh", width: "100vw", display: "flex", alignItems: "center", justifyContent: "center" }}>
         <Paper sx={{ p: 3, width: 800 }} elevation={4}>
           <Stack direction="row" justifyContent="space-between" alignItems="center">
